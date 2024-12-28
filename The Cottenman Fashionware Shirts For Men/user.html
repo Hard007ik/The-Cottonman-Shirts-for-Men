@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anta&family=Nova+Square&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        body {
+            background-color: rgb(250, 245, 237);
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        main #back-img {
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+        }
+
+        .scheme {
+            position: relative;
+            background-color: green;
+            font-family: 'Nova Square', sans-serif;
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        .div-nav {
+            position: sticky;
+            z-index: 100;
+            top: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        /* @media(max-width:376px) {
+            .div-nav {
+                position: sticky;
+                z-index: 100;
+                top: 7px;
+                transition: background-color 0.5s ease;
+            }
+        } */
+
+        .navmain {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .div-nav:hover {
+            background-color: whitesmoke;
+        }
+
+        .div-nav.scrolled {
+            background-color: whitesmoke;
+        }
+
+        #Cottonman {
+            color: brown;
+            text-decoration: none;
+            font-size: 2em;
+            transition: height 1s ease;
+            font-family: 'Anta', sans-serif;
+        }
+
+        #Cottonman:hover {
+            content: url("icon.png");
+            height: 50px;
+        }
+
+        #Cottonman.scrolled {
+            content: url("icon.png");
+            height: 50px;
+        }
+
+        .img-icon {
+            height: 2rem;
+            width: auto;
+            padding-right: 5px;
+            cursor: pointer;
+        }
+
+        /* Style the input field */
+        input[type="text"] {
+            border: none;
+            /* padding: 10px; */
+            padding-top: 15px;
+            width: 0;
+            background-color: transparent;
+            outline: none;
+            transition: width 0.4s ease-in-out;
+        }
+
+        /* Style the search button */
+        .search-button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            padding-top: 15px;
+            padding-right: 10px;
+        }
+
+        /* Search icon */
+        .fa-search {
+            font-size: 20px;
+        }
+
+        /* Expand the input field on click */
+        input[type="text"]:focus {
+            width: 90px;
+        }
+
+        /* //////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+       
+        /* Section - 1 */
+
+        .section-1 {
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        #submit {
+            width: 100%;
+            font-family: Verdana, sans-serif;
+            font-weight: lighter;
+            background-color: transparent;
+            border: 1px solid black;
+            transition: background-color 0.5s linear, color 0.5s linear;
+        }
+
+        #submit:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .div-part {
+            margin: 1rem;
+            background-color: white;
+            padding: 2rem;
+        }
+
+        /* ////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+        /* footer */
+
+        .footer {
+            background-color: white;
+            padding: 70px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-container {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #333;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #000;
+            text-decoration: none;
+            font-weight: 300;
+            color: #000;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #52ff6c;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: #fff;
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #000;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #fff;
+            background-color: #49ff01;
+        }
+
+        /*responsive*/
+        @media(max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+
+            .copyright {
+                font-size: 12px;
+            }
+        }
+
+        @media(max-width: 574px) {
+            .footer-col {
+                width: 100%;
+            }
+
+            .copyright {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div id="back-img"><img src="Logo2.png" class="img-fluid mx-auto d-block" alt="The Cottonman" height="100%"
+                style="position: fixed;">
+        </div>
+    </main>
+
+    <div class="scheme">
+        20% off on first order. use #IIndian code
+    </div>
+
+    <header class="div-nav">
+
+        <nav class="navbar navbar-expand-md navmain">
+            <div class="container-fluid">
+
+                <div class="navbar-brand brand">
+                    <a href="index.html" id="Cottonman">Cottonman</a>
+                </div>
+
+                <button class="navbar-toggler" aria-controls="target" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#target">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="target" aria-labelledby="Cottonman">
+
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="Cottonman">Cottonman</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+
+                        <ul class="navbar-nav justify-content-end flex-grow-1">
+                            <li class="nav-item">
+                                <input type="text" id="search-box" placeholder="Search...">
+                                <button class="search-button img-icon"
+                                    onclick="document.getElementById('search-box').focus()">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#cart" class="nav-link">
+                                    <img src="cart.png" alt="cart" class="img-icon">
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#user" class="nav-link">
+                                    <img src="user.png" alt="login" class="img-icon">
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#community" class="nav-link">
+                                    <img src="Community.png" alt="login" class="img-icon">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <section class="section-1 container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="div-part">
+                    <p style="font-weight: 500;">Have an account? Sign in:</p>
+                    <form action="" class="was-validated">
+                        <div class="mt-3">
+                            <label for="">Email:</label>
+                            <input type="email" class="form-control" placeholder="Enter Email" required>
+
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Enter e-mail.</div>
+                        </div>
+
+                        <div class="mt-3">
+                            <label for="">Password:</label>
+                            <input type="password" class="form-control" id="" required>
+
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Enter password.</div>
+                        </div>
+
+                        <input type="button" id="submit" style="margin-top: 1rem;" value="Sign in">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="div-part">
+                    <p style="font-weight: 500;">Create an Account</p>
+                    <ul>
+                        <li>Faster checkout</li>
+                        <li>Exclusive offers + invites</li>
+                        <li>Instant access to your order details</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <button type="button" id="submit">CREATE AN ACCOUNT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="position: relative;">
+        <div class="footer-container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4 style="margin-left: 30px;">The Cottonman</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">careers</a></li>
+                        <li><a href="#">our community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 style="margin-left: 30px;">get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">delivery + returns</a></li>
+                        <li><a href="#">help center</a></li>
+                        <li><a href="#">size guide</a></li>
+                        <li><a href="#">shop finder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 style="margin-left: 30px;">contact us</h4>
+                    <ul>
+                        <li><a href="#">Track my Order</a></li>
+                        <li><a href="#">chat with us</a></li>
+                        <li><a href="#">wholesale enquiries</a></li>
+                        <li><a href="#">affiliates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 style="margin-left: 30px;">follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: darkgreen; padding: 20px;">
+            &copy; 2024 The Cottonman
+        </div>
+    </footer>
+
+    <script>
+        // when scroll down the change
+        window.onscroll = function () {
+            const nav = document.querySelector('.div-nav');
+            const cottonman = document.querySelector('#Cottonman');
+            if (window.pageYOffset > 30) {
+                nav.classList.add('scrolled');
+                cottonman.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+                cottonman.classList.remove('scrolled');
+            }
+        };
+    </script>
+</body>
+
+</html>
